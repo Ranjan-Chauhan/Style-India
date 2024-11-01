@@ -7,8 +7,8 @@ import { mens_kurta } from "../../assets/mens_kurta";
 import HomeSectionCard from "../Home/HomeSectionCard";
 
 const product = {
-  name: "Basic Tee 6-Pack",
-  price: "$192",
+  name: "Men Shirts",
+  price: "₹1999",
   href: "#",
   breadcrumbs: [
     { id: 1, name: "Men", href: "#" },
@@ -16,19 +16,19 @@ const product = {
   ],
   images: [
     {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-secondary-product-shot.jpg",
+      src: "https://5.imimg.com/data5/SELLER/Default/2023/12/368334062/DP/HR/EJ/32968154/t-shirtzmq6b-512.webp",
       alt: "Two each of gray, white, and black shirts laying flat.",
     },
     {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-01.jpg",
+      src: "https://5.imimg.com/data5/SELLER/Default/2023/12/368334062/DP/HR/EJ/32968154/t-shirtzmq6b-512.webp",
       alt: "Model wearing plain black basic tee.",
     },
     {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-tertiary-product-shot-02.jpg",
+      src: "https://5.imimg.com/data5/SELLER/Default/2023/12/368334062/DP/HR/EJ/32968154/t-shirtzmq6b-512.webp",
       alt: "Model wearing plain gray basic tee.",
     },
     {
-      src: "https://tailwindui.com/img/ecommerce-images/product-page-02-featured-product-shot.jpg",
+      src: "https://5.imimg.com/data5/SELLER/Default/2023/12/368334062/DP/HR/EJ/32968154/t-shirtzmq6b-512.webp",
       alt: "Model wearing plain white basic tee.",
     },
   ],
@@ -372,7 +372,12 @@ export default function ProductDetails() {
                       <p>Execellent</p>
                     </Grid>
                     <Grid item xs={7}>
-                      <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7 }} variant="determinate" value={70} color="success"/>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={70}
+                        color="success"
+                      />
                     </Grid>
                   </Grid>
                   <Grid container alignItems={"center"} gap={2}>
@@ -380,7 +385,12 @@ export default function ProductDetails() {
                       <p>VeryGood</p>
                     </Grid>
                     <Grid item xs={7}>
-                      <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7 }} variant="determinate" value={60} color="success"/>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={60}
+                        color="success"
+                      />
                     </Grid>
                   </Grid>
                   <Grid container alignItems={"center"} gap={2}>
@@ -388,7 +398,12 @@ export default function ProductDetails() {
                       <p>Good</p>
                     </Grid>
                     <Grid item xs={7}>
-                      <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7 }} variant="determinate" value={40} color="secondary"/>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={40}
+                        color="secondary"
+                      />
                     </Grid>
                   </Grid>
                   <Grid container alignItems={"center"} gap={2}>
@@ -396,7 +411,12 @@ export default function ProductDetails() {
                       <p>Average</p>
                     </Grid>
                     <Grid item xs={7}>
-                      <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7 }} variant="determinate" value={35} color="warning"/>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={35}
+                        color="warning"
+                      />
                     </Grid>
                   </Grid>
                   <Grid container alignItems={"center"} gap={2}>
@@ -404,7 +424,12 @@ export default function ProductDetails() {
                       <p>Poor</p>
                     </Grid>
                     <Grid item xs={7}>
-                      <LinearProgress sx={{bgcolor:"#d0d0d0", borderRadius:4, height:7 }} variant="determinate" value={20} color="error"/>
+                      <LinearProgress
+                        sx={{ bgcolor: "#d0d0d0", borderRadius: 4, height: 7 }}
+                        variant="determinate"
+                        value={20}
+                        color="error"
+                      />
                     </Grid>
                   </Grid>
                 </Box>
@@ -414,10 +439,12 @@ export default function ProductDetails() {
         </div>
         {/* Similar Product */}
         <div className="pt-10">
-        <h1 className="pb-3 text-xl font-bold">Similar Product</h1>
-        <div className="flex flex-wrap space-x-5 space-y-10 border items-center justify-center h-auto w-auto p-5 ">
-          {mens_kurta.map((item,index) => <HomeSectionCard product={item} Key={index} />)}
-        </div>
+          <h1 className="pb-3 text-xl font-bold">Similar Product</h1>
+          <div className="flex flex-wrap space-x-5 space-y-10 border items-center justify-center h-auto w-auto p-5 ">
+            {mens_kurta.map((item, index) => (
+              <HomeSectionCard product={item} Key={index} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

@@ -1,21 +1,27 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-function HomeSectionCard({product}) {
+function HomeSectionCard({ product }) {
+  const navigate = useNavigate();
+
   return (
-    <div className="curser-pointer flex flex-col items-center justify-center rounded-2xl shadow-md  overflow-hidden w-[15rem] m-3 ">
-      <div className="h-[16rem] w-[13rem]">
+    <div
+      onClick={() => navigate(`/product/${5}`)}
+      className="curser-pointer flex flex-col items-center justify-center rounded hover:shadow-2xl overflow-hidden w-[14rem] m-3 "
+    >
+      <div className="h-[17rem] w-[14rem] bg-gray-100">
         <img
-          className="object-cover object-top w-full h-full item rounded-2xl"
+          className="object-cover object-top w-full h-full"
           src={product.imageUrl}
           alt=""
         />
       </div>
 
-      <div>
-        <h3 className="text-lg font-medium text-center mt-2 text-gray-900">{product.brand}</h3>
-        <p className="m-1 text-sm text-center items-center text-gray-900 w-10/12 ">
-          {product.title}
-        </p>  
+      <div className="m-2">
+        <h3 className="text-base font-semibold mt-1.5 text-black">
+          {product.brand.toUpperCase()}
+        </h3>
+        <p className="my-1 text-sm text-gray-900">{product.title}</p>
       </div>
 
       {/* <div className="h-[16rem] w-[13rem] mt-5  ">
@@ -25,7 +31,6 @@ function HomeSectionCard({product}) {
           alt=""
         />
       </div> */}
-      
     </div>
   );
 }

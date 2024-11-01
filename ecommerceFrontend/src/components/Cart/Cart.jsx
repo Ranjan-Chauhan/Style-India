@@ -4,11 +4,11 @@ import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 function Cart() {
-  const navigate =useNavigate();
+  const navigate = useNavigate();
 
   const handleCheckout = () => {
-    navigate("/checkout?step=2")
-  }
+    navigate("/checkout?step=2");
+  };
 
   return (
     <div className="lg:grid grid-cols-3 lg:px-16 relative">
@@ -22,7 +22,7 @@ function Cart() {
           <p className="uppercase font-bold opacity-60 pb-4 text-center pt-2 ">
             Price Details
           </p>
-          <hr className="border"/>
+          <hr className="border" />
           <div className="space-y-1 font-semibold p-2">
             <div className="flex justify-between pt-3 text-black">
               <span>Price</span>
@@ -43,7 +43,7 @@ function Cart() {
           </div>
         </div>
         <Button
-            onClick={handleCheckout}
+          onClick={handleCheckout}
           variant="contained"
           sx={{
             width: "100%",
@@ -56,7 +56,6 @@ function Cart() {
 
           //   disabled={cart.cart?.totalItem === 0}
         >
-          {" "}
           Checkout
         </Button>
       </div>

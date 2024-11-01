@@ -71,10 +71,11 @@ const filters = [
       { value: "L", label: "L", checked: false },
       { value: "XL", label: "XL", checked: false },
       { value: "2XL", label: "2XL", checked: false },
-      { value: "3XL", label: "3XL", checked: false }
+      { value: "3XL", label: "3XL", checked: false },
     ],
   },
 ];
+
 const singleFilter = [
   {
     id: "price",
@@ -437,7 +438,7 @@ export default function Product() {
 
               {/* Product grid */}
               <div className="lg:col-span-4">
-                <div className="flex flex-wrap justify-center bg-white py-5 ">
+                <div className="flex flex-wrap justify-center bg-white">
                   {mens_kurta.map((item) => (
                     <ProductCard key={item.name} product={item} />
                   ))}

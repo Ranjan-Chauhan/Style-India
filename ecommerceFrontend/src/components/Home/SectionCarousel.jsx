@@ -1,78 +1,120 @@
-import  { useState } from "react";
-import AliceCarousel from "react-alice-carousel";
+// import React, { useRef } from "react";
+// import HomeSectionCard from "./HomeSectionCard";
+// import { mens_kurta } from "../../assets/mens_kurta";
+// import Slider from "react-slick";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+// import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
+
+// function SectionCarousel() {
+//   const sliderRef = useRef(null);
+
+//   // const responsive = {
+//   //   //   0: { items: 1 },
+//   //   //   720: { items: 3 },
+//   //   //   1024: { items: 4 },
+//   //   //   1440: { items: 5.5 },
+//   //   // };
+
+//   const slidePrev = () => {
+//     sliderRef.current.slickPrev();
+//   };
+
+//   const slideNext = () => {
+//     sliderRef.current.slickNext();
+//   };
+
+//   const items = mens_kurta
+//     .slice(0, 10)
+//     .map((item, index) => <HomeSectionCard key={index} product={item} />);
+
+//   const settings = {
+//     dots: false,
+//     infinite: false,
+//     speed: 500,
+//     slidesToShow: 6,
+//     slidesToScroll: 1,
+//   };
+
+//   return (
+//     <div className="px-3 w-auto relative">
+//       <div className="p-4">
+//         <Slider ref={sliderRef} {...settings}>
+//           {items}
+//         </Slider>
+
+//         <button
+//           onClick={slidePrev}
+//           className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+//         >
+//           <NavigateBeforeIcon sx={{ fontSize: 24, color: "black" }} />
+//         </button>
+
+//         <button
+//           onClick={slideNext}
+//           className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+//         >
+//           <NavigateNextIcon sx={{ fontSize: 24, color: "black" }} />
+//         </button>
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default SectionCarousel;
+import React, { useRef, useState } from "react";
 import HomeSectionCard from "./HomeSectionCard";
-import NavigateNextIcon from "@mui/icons-material/NavigateNext";
-import { Button } from "@mui/material";
 import { mens_kurta } from "../../assets/mens_kurta";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
+import NavigateBeforeIcon from "@mui/icons-material/NavigateBefore";
 
 function SectionCarousel() {
-  const [activeIndex, setActiveIndex] = useState(0);
+  const sliderRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
-  const responsive = {
-    0: { items: 1 },
-    720: { items: 3 },
-    1024: { items: 4 },
-    1440: { items: 5.5 },
+  const items = mens_kurta
+    .slice(0, 10)
+    .map((item, index) => <HomeSectionCard key={index} product={item} />);
+
+  const settings = {
+    dots: false,
+    infinite: false,
+    speed: 500,
+    slidesToShow: 6,
+    slidesToScroll: 1,
+    afterChange: (index) => setCurrentSlide(index),
   };
 
-  const slidePrev = () => {setActiveIndex(activeIndex - 1)};
-  const slideNext = () => {setActiveIndex(activeIndex + 1)};
-
-  // const syncActiveIndex = ({item}) => setActiveIndex(item)
-
-  const items = mens_kurta.slice(0,10).map((item, index) => (
-    <HomeSectionCard key={index} product={item}/>
-  ));
-
   return (
-    <div className="px-3 w-auto ">
-      <div className=" relative p-4">
-        <AliceCarousel
-          items={items}
-          responsive={responsive}
-          disableDotsControls
-          disableButtonsControls
-          // onSlideChanged={syncActiveIndex}
-          activeIndex={activeIndex}
-        />
+    <div className="px-3 w-auto relative">
+      <div className="p-4">
+        <Slider ref={sliderRef} {...settings}>
+          {items}
+        </Slider>
 
-      {activeIndex !== items.length - 5 && (
-        <Button
-          onClick={slideNext}
-          variant="contained"
-          className="z-50 bg-white"
-          sx={{
-            position: "absolute",
-            right: "-0.7rem",
-            top: "45%",
-            bgcolor: "white",
-            transform: "translateX(50%) rotate(-90deg)",
-          }}
-        >
-          <NavigateNextIcon
-            sx={{ transform: "  rotate(90deg)", color: "black" }}
-          />
-        </Button>
-      )}
+        {/* Conditionally render the left button */}
+        {currentSlide !== 0 && (
+          <button
+            onClick={() => sliderRef.current.slickPrev()}
+            className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+          >
+            <NavigateBeforeIcon sx={{ fontSize: 24, color: "black" }} />
+          </button>
+        )}
 
-      {activeIndex !== 0 && (
-        <Button
-          onClick={slidePrev}
-          variant="contained"
-          className="z-50 bg-white"
-          sx={{
-            position: "absolute",
-            left: "0rem",
-            top: "45%",
-            bgcolor: "white",
-            transform: "translateX(-50%) rotate(90deg)",
-          }}
-        >
-          <NavigateNextIcon
-            sx={{ transform: "rotate(90deg)", color: "black" }}
-          />
-        </Button>
-      )}
+        {/* Conditionally render the right button */}
+        {currentSlide < items.length - 6 && (
+          <button
+            onClick={() => sliderRef.current.slickNext()}
+            className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-lg"
+          >
+            <NavigateNextIcon sx={{ fontSize: 24, color: "black" }} />
+          </button>
+        )}
       </div>
     </div>
   );

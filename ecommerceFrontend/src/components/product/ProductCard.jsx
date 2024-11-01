@@ -1,17 +1,16 @@
-// import React from "react";
-// import { mens_kurta } from "../../assets/mens_kurta";
-
 import { useNavigate } from "react-router-dom";
 
-const ProductCard=({product}) =>{
-
+const ProductCard = ({ product }) => {
   const navigate = useNavigate();
-  
+
   return (
-    <div onClick={()=>navigate(`/product/${5}`)} className="productCard w-[15rem] m-3 transition-all cursor-pointer rounded-xl">
-      <div className="h-[20rem] rounded-xl">
+    <div
+      onClick={() => navigate(`/product/${5}`)}
+      className="productCard w-[14rem] m-5 hover:shadow-2xl transition-all cursor-pointer rounded "
+    >
+      <div className="h-[17rem] w-[14rem] rounded">
         <img
-          className="h-full w-full object-cover object-left-top rounded-xl"
+          className="h-full w-full object-cover object-left-top"
           src={product.imageUrl}
           alt=""
         />
@@ -19,20 +18,20 @@ const ProductCard=({product}) =>{
 
       <div className="textPart bg-white p-3">
         <div>
-          <p className="font-bold opacity-80">{product.brand}</p>
-          <p>{product.title}</p>
+          <p className="text-black font-semibold">{product.brand}</p>
+          <p className="text-sm text-gray-900">{product.title}</p>
         </div>
 
-        <div className="flex items-center space-x-2">
+        <div className="flex items-center space-x-4">
           <p className="font-semibold">₹{product.discountedPrice}</p>
-          <p className="line-through opacity-50">{product.price}</p>
-          <p className="text-green-500 font-semibold">
+          <p className="line-through opacity-70 text-sm">{product.price}</p>
+          <p className="text-green-500 text-sm font-semibold">
             {product.discountPersent}% off
           </p>
         </div>
       </div>
     </div>
   );
-}
+};
 
 export default ProductCard;
