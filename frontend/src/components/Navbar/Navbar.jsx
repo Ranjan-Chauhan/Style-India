@@ -1,5 +1,5 @@
 import { Fragment, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   Dialog,
   PopoverButton,
@@ -15,7 +15,6 @@ import {
   XMarkIcon,
 } from "@heroicons/react/24/outline";
 
-import { Button } from "@mui/material";
 import { navigation } from "./NavData.js";
 import { useNavigate } from "react-router-dom";
 // import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
@@ -23,8 +22,6 @@ import { useNavigate } from "react-router-dom";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonOutlineIcon from "@mui/icons-material/PersonOutline";
 import SearchIcon from "@mui/icons-material/Search";
-import Wishlist from "../Wishlist/Wishlist.jsx";
-// import Cart from "../Cart/Cart.jsx";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -34,7 +31,8 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const [counter, setCounter] = useState(5);
-
+  const [isOpen, setIsOpen] = useState(false); // for profile dropdown
+  const [isMenDropdownOpen, setIsMenDropdownOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState(null);
   const openUserMenu = Boolean(anchorEl);
 
@@ -60,7 +58,7 @@ export default function Navbar() {
   };
 
   return (
-    <div className="bg-white shadow-lg py-2.5">
+    <div className="bg-white shadow-lg py-2">
       {/* Mobile menu */}
       <Transition.Root show={open} as={Fragment}>
         <Dialog as="div" className="relative z-40 lg:hidden" onClose={setOpen}>
@@ -205,7 +203,7 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 px-4 py-6">
+                {/* <div className="border-t border-gray-200 px-4 py-6">
                   <a href="#" className="-m-2 flex items-center p-2">
                     <img
                       src="https://tailwindui.com/img/flags/flag-canada.svg"
@@ -217,40 +215,31 @@ export default function Navbar() {
                     </span>
                     <span className="sr-only">, change currency</span>
                   </a>
-                </div>
+                </div> */}
               </Dialog.Panel>
             </Transition.Child>
           </div>
         </Dialog>
       </Transition.Root>
+
       {/* ----Laptop view ---- */}
-      <header className=" bg-white">
+      <header className=" bg-white px-12">
         <div className="container mx-auto">
           <nav aria-label="Top" className="">
-            <div className="flex h-16 items-center px-10">
-              <button
-                type="button"
-                className="rounded-md bg-white p-2 text-gray-400 lg:hidden"
-                onClick={() => setOpen(true)}
-              >
-                <span className="sr-only">Open menu</span>
-                <Bars3Icon className="h-6 w-6" aria-hidden="true" />
-              </button>
-
+            <div className="flex h-16 items-center">
               {/* Logo */}
-              <div className="ml-6 flex lg:ml-0 rounded-full">
-                <span className="sr-only">Your Company</span>
-                <Button onClick={() => navigate("/")}>
+              <div className="flex lg:ml-0 rounded-full">
+                <Link to="/">
                   <img
-                    className="h-12 w-auto rounded-full"
+                    className="h-12 w-12 rounded-full"
                     src="https://img.freepik.com/premium-vector/letter-s-modern-colorful-logo-business-s-letter-identity-logo-vector-design_135595-1206.jpg?w=740"
                     alt=""
                   />
-                </Button>
+                </Link>
               </div>
 
               {/* Flyout menus */}
-              <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch z-50">
+              {/* <PopoverGroup className="hidden lg:ml-8 lg:block lg:self-stretch z-50">
                 <div className="flex h-full space-x-8">
                   {navigation?.categories?.map((category) => (
                     <Popover key={category.name} className="flex ">
@@ -300,8 +289,8 @@ export default function Navbar() {
                                               className="object-cover object-center"
                                             />
                                           </div>
-                                          <a
-                                            href={item.href}
+                                          <link
+                                            to={item.to}
                                             className="mt-6 block font-medium text-gray-900"
                                           >
                                             <span
@@ -309,7 +298,7 @@ export default function Navbar() {
                                               aria-hidden="true"
                                             />
                                             {item.name}
-                                          </a>
+                                          </link>
                                           <p
                                             aria-hidden="true"
                                             className="mt-1"
@@ -367,7 +356,149 @@ export default function Navbar() {
                     </Popover>
                   ))}
                 </div>
-              </PopoverGroup>
+              </PopoverGroup> */}
+
+              <div className="flex space-x-6 items-center p-4 bg-white">
+                {/* Main Nav Items */}
+                <NavLink
+                  to="/men"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-pink-600 border-pink-600 border-b-4"
+                      : "hover:text-pink-600 hover:border-b-4 hover:border-b-pink-600"
+                  }
+                  onMouseEnter={() => setIsMenDropdownOpen(true)}
+                  onMouseLeave={() => setIsMenDropdownOpen(false)}
+                >
+                  MEN
+                </NavLink>
+                <NavLink to="/women" className="hover:text-pink-600">
+                  WOMEN
+                </NavLink>
+                <NavLink to="/kids" className="hover:text-pink-600">
+                  KIDS
+                </NavLink>
+                <NavLink to="/home-living" className="hover:text-pink-600">
+                  HOME & LIVING
+                </NavLink>
+                <NavLink to="/beauty" className="hover:text-pink-600">
+                  BEAUTY
+                </NavLink>
+
+                {/* Men Dropdown Menu */}
+                {isMenDropdownOpen && (
+                  <div
+                    className="absolute top-20 left-0 w-8/12 bg-white shadow-lg border-t border-gray-200 z-50"
+                    onMouseEnter={() => setIsMenDropdownOpen(true)}
+                    onMouseLeave={() => setIsMenDropdownOpen(false)}
+                  >
+                    <div className="flex justify-around px-4 text-gray-700">
+                      <div className="space-y-1 py-4 px-10">
+                        <h3 className="font-semibold text-pink-600">Topwear</h3>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          T-Shirts
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Casual Shirts
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Formal Shirts
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Sweatshirts
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Sweaters
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Jackets
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Blazers & Coats
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Suits
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Rain Jackets
+                        </p>
+                      </div>
+
+                      <div className="space-y-1 bg-gray-50 py-4 px-10">
+                        <h3 className="font-semibold text-pink-600">
+                          Bottomwear
+                        </h3>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Jeans
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Casual Trousers
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Formal Trousers
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Shorts
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Track Pants & Joggers
+                        </p>
+                      </div>
+
+                      <div className="space-y-1 py-4 px-10">
+                        <h3 className="font-semibold text-pink-600">
+                          Footwear
+                        </h3>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Casual Shoes
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Sports Shoes
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Formal Shoes
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Sneakers
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Sandals & Floaters
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Flip Flops
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Socks
+                        </p>
+                      </div>
+
+                      <div className="space-y-1 bg-gray-50 py-4 px-10">
+                        <h3 className="font-semibold text-pink-600">
+                          Fashion Accessories
+                        </h3>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Wallets
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Belts
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Perfumes & Body Mists
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Trimmers
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Deodorants
+                        </p>
+                        <p className="hover:text-pink-600 cursor-pointer">
+                          Caps & Hats
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </div>
 
               <div className="flex justify-center items-center space-x-10 ml-44">
                 {/* Search Bar */}
@@ -383,14 +514,58 @@ export default function Navbar() {
 
                 {/* Profile Icons */}
                 <div className="flex items-center space-x-8 font-semibold text-xs px-1">
-                  <div className="relative text-gray-800 hover:text-pink-600 font-bold">
-                    <div>
+                  <div
+                    className="relative text-gray-800 hover:text-pink-600 font-bold"
+                    onMouseEnter={() => setIsOpen(true)}
+                    onMouseLeave={() => setIsOpen(false)}
+                  >
+                    <div className="flex flex-col items-center cursor-pointer">
                       <PersonOutlineIcon className="mx-1.5 text-sm" />
+                      Profile
                     </div>
-                    Profile
+
+                    {/* Dropdown Menu */}
+                    {isOpen && (
+                      <div className="absolute right- mt-5 w-56 rounded shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50">
+                        <div className="p-4 border-b">
+                          <p className="text-gray-900 font-medium">
+                            Hello RANJAN
+                          </p>
+                          <p className="text-gray-500 text-sm">9372139568</p>
+                        </div>
+                        <ul className="py-2">
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Orders
+                          </li>
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Wishlist
+                          </li>
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Contact Us
+                          </li>
+
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Coupons
+                          </li>
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Saved Cards
+                          </li>
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Saved Addresses
+                          </li>
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Edit Profile
+                          </li>
+                          <li className="block px-4 py-2 text-gray-700 hover:bg-gray-100 cursor-pointer">
+                            Logout
+                          </li>
+                        </ul>
+                      </div>
+                    )}
                   </div>
+
                   <Link
-                    to="/Wishlist"
+                    to="/wishlist"
                     className="relative text-gray-800 hover:text-pink-600 font-bold"
                   >
                     <div>

@@ -6,7 +6,7 @@ export const navigation = {
       featured: [
         {
           name: "New Arrivals",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://cdn.shopify.com/s/files/1/0552/5389/3273/files/FB_Cover_2048x2048.png?v=1630937346",
           imageAlt:
@@ -14,7 +14,7 @@ export const navigation = {
         },
         {
           name: "Artwork Tees",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt:
@@ -26,17 +26,17 @@ export const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Shirt", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jeans", href: "#" },
+            { name: "Shirt", to: "#" },
+            { name: "T-Shirts", to: "#" },
+            { name: "Jeans", to: "#" },
           ],
         },
         {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Sunglasses", href: "#" },
+            { name: "Watches", to: "#" },
+            { name: "Sunglasses", to: "#" },
           ],
         },
       ],
@@ -47,7 +47,7 @@ export const navigation = {
       featured: [
         {
           name: "New Arrivals",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR36DC4ee7bd57M6Ka849eI9SuHmJrSdUTvWQ&s",
           imageAlt:
@@ -55,7 +55,7 @@ export const navigation = {
         },
         {
           name: "Basic Tees",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg",
           imageAlt:
@@ -67,18 +67,18 @@ export const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Tops", href: "#" },
-            { name: "Dresses", href: "#" },
-            { name: "W-Jeans", href: "#" },
+            { name: "Tops", to: "#" },
+            { name: "Dresses", to: "#" },
+            { name: "W-Jeans", to: "#" },
           ],
         },
         {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Sunglasses", href: "#" },
-            { name: "Purse", href: "#" },
+            { name: "Watches", to: "#" },
+            { name: "Sunglasses", to: "#" },
+            { name: "Purse", to: "#" },
           ],
         },
       ],
@@ -89,7 +89,7 @@ export const navigation = {
       featured: [
         {
           name: "New Arrivals",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://cdn.shopify.com/s/files/1/0552/5389/3273/files/FB_Cover_2048x2048.png?v=1630937346",
           imageAlt:
@@ -97,7 +97,7 @@ export const navigation = {
         },
         {
           name: "Artwork Tees",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt:
@@ -109,18 +109,18 @@ export const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Boys-Clothing", href: "#" },
-            { name: "Girls-Clothing", href: "#" },
-            { name: "Toys", href: "#" },
+            { name: "Boys-Clothing", to: "#" },
+            { name: "Girls-Clothing", to: "#" },
+            { name: "Toys", to: "#" },
           ],
         },
         {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Bags", href: "#" },
-            { name: "Watches", href: "#" },
-            { name: "Sunglasses", href: "#" },
+            { name: "Bags", to: "#" },
+            { name: "Watches", to: "#" },
+            { name: "Sunglasses", to: "#" },
           ],
         },
       ],
@@ -131,7 +131,7 @@ export const navigation = {
       featured: [
         {
           name: "New Arrivals",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://cdn.shopify.com/s/files/1/0552/5389/3273/files/FB_Cover_2048x2048.png?v=1630937346",
           imageAlt:
@@ -139,7 +139,7 @@ export const navigation = {
         },
         {
           name: "Artwork Tees",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt:
@@ -151,17 +151,17 @@ export const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Shirt", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jeans", href: "#" },
+            { name: "Shirt", to: "#" },
+            { name: "T-Shirts", to: "#" },
+            { name: "Jeans", to: "#" },
           ],
         },
         {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Sunglasses", href: "#" },
+            { name: "Watches", to: "#" },
+            { name: "Sunglasses", to: "#" },
           ],
         },
       ],
@@ -172,7 +172,7 @@ export const navigation = {
       featured: [
         {
           name: "New Arrivals",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://cdn.shopify.com/s/files/1/0552/5389/3273/files/FB_Cover_2048x2048.png?v=1630937346",
           imageAlt:
@@ -180,7 +180,7 @@ export const navigation = {
         },
         {
           name: "Artwork Tees",
-          href: "#",
+          to: "#",
           imageSrc:
             "https://tailwindui.com/img/ecommerce-images/category-page-02-image-card-06.jpg",
           imageAlt:
@@ -192,17 +192,17 @@ export const navigation = {
           id: "clothing",
           name: "Clothing",
           items: [
-            { name: "Shirt", href: "#" },
-            { name: "T-Shirts", href: "#" },
-            { name: "Jeans", href: "#" },
+            { name: "Shirt", to: "#" },
+            { name: "T-Shirts", to: "#" },
+            { name: "Jeans", to: "#" },
           ],
         },
         {
           id: "accessories",
           name: "Accessories",
           items: [
-            { name: "Watches", href: "#" },
-            { name: "Sunglasses", href: "#" },
+            { name: "Watches", to: "#" },
+            { name: "Sunglasses", to: "#" },
           ],
         },
       ],
