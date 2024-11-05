@@ -223,12 +223,12 @@ export default function Navbar() {
       </Transition.Root>
 
       {/* ----Laptop view ---- */}
-      <header className=" bg-white px-12">
+      <header className=" bg-white">
         <div className="container mx-auto">
           <nav aria-label="Top" className="">
             <div className="flex h-16 items-center">
               {/* Logo */}
-              <div className="flex lg:ml-0 rounded-full">
+              <div className="flex lg:ml-10 rounded-full">
                 <Link to="/">
                   <img
                     className="h-12 w-12 rounded-full"
@@ -358,30 +358,60 @@ export default function Navbar() {
                 </div>
               </PopoverGroup> */}
 
-              <div className="flex space-x-6 items-center p-4 bg-white">
+              {/* relative z-10 -mb-px flex items-center border-b-4 pt-px font-medium transition-colors duration-200 ease-out */}
+
+              <div className="flex space-x-10 items-center ml-8 bg-white">
                 {/* Main Nav Items */}
                 <NavLink
-                  to="/men"
+                  to="/Product"
                   className={({ isActive }) =>
                     isActive
-                      ? "text-pink-600 border-pink-600 border-b-4"
-                      : "hover:text-pink-600 hover:border-b-4 hover:border-b-pink-600"
+                      ? "text-pink-600 border-pink-600 z-50 -mb-px pt-px border-b-4"
+                      : "hover:text-pink-600 text-gray-900 font-semibold z-50 -mb-px pt-px hover:border-b-4 hover:border-b-rose-500"
                   }
                   onMouseEnter={() => setIsMenDropdownOpen(true)}
                   onMouseLeave={() => setIsMenDropdownOpen(false)}
                 >
                   MEN
                 </NavLink>
-                <NavLink to="/women" className="hover:text-pink-600">
+                <NavLink
+                  to="/women"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-pink-600 border-pink-600 z-50 -mb-px pt-px transition-colors duration-200 ease-out border-b-4"
+                      : "hover:text-pink-600 text-gray-900 font-semibold z-10 -mb-px pt-px transition-colors duration-200 ease-out hover:border-b-4 hover:border-b-pink-600"
+                  }
+                >
                   WOMEN
                 </NavLink>
-                <NavLink to="/kids" className="hover:text-pink-600">
+                <NavLink
+                  to="/kids"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-pink-600 border-pink-600 z-50 -mb-px pt-px transition-colors duration-200 ease-out border-b-4"
+                      : " text-gray-900 font-semibold z-10 -mb-px pt-px transition-colors duration-200 ease-out hover:border-b-4 hover:border-b-red-500"
+                  }
+                >
                   KIDS
                 </NavLink>
-                <NavLink to="/home-living" className="hover:text-pink-600">
+                <NavLink
+                  to="/home-living"
+                  className={({ isActive }) =>
+                    isActive
+                      ? " border-yellow-500 z-50 -mb-px pt-px transition-colors duration-200 ease-out border-b-4"
+                      : " text-gray-900 font-semibold z-10 -mb-px pt-px transition-colors duration-200 ease-out hover:border-b-4 hover:border-b-amber-500"
+                  }
+                >
                   HOME & LIVING
                 </NavLink>
-                <NavLink to="/beauty" className="hover:text-pink-600">
+                <NavLink
+                  to="/beauty"
+                  className={({ isActive }) =>
+                    isActive
+                      ? "text-pink-600 border-pink-600 z-50 -mb-px pt-px transition-colors duration-200 ease-out border-b-4"
+                      : " text-gray-900 font-semibold z-10 -mb-px pt-px transition-colors duration-200 ease-out hover:border-b-4 hover:border-b-sky-500"
+                  }
+                >
                   BEAUTY
                 </NavLink>
 
@@ -395,31 +425,31 @@ export default function Navbar() {
                     <div className="flex justify-around px-4 text-gray-700">
                       <div className="space-y-1 py-4 px-10">
                         <h3 className="font-semibold text-pink-600">Topwear</h3>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           T-Shirts
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Casual Shirts
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Formal Shirts
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Sweatshirts
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Sweaters
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Jackets
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Blazers & Coats
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Suits
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Rain Jackets
                         </p>
                       </div>
@@ -428,19 +458,19 @@ export default function Navbar() {
                         <h3 className="font-semibold text-pink-600">
                           Bottomwear
                         </h3>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Jeans
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Casual Trousers
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Formal Trousers
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Shorts
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Track Pants & Joggers
                         </p>
                       </div>
@@ -449,25 +479,25 @@ export default function Navbar() {
                         <h3 className="font-semibold text-pink-600">
                           Footwear
                         </h3>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Casual Shoes
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Sports Shoes
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Formal Shoes
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Sneakers
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Sandals & Floaters
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Flip Flops
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Socks
                         </p>
                       </div>
@@ -476,22 +506,22 @@ export default function Navbar() {
                         <h3 className="font-semibold text-pink-600">
                           Fashion Accessories
                         </h3>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Wallets
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Belts
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Perfumes & Body Mists
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Trimmers
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Deodorants
                         </p>
-                        <p className="hover:text-pink-600 cursor-pointer">
+                        <p className="hover:text-gray-700 hover:font-bold cursor-pointer">
                           Caps & Hats
                         </p>
                       </div>

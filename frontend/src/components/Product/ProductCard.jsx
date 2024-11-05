@@ -6,23 +6,23 @@ const ProductCard = ({ product }) => {
   return (
     <div
       onClick={() => navigate(`/product/${5}`)}
-      className="productCard w-[14rem] m-5 hover:shadow-2xl transition-all cursor-pointer rounded "
+      className="productCard w-[14rem] m-5 hover:shadow-2xl transition-all cursor-pointer rounded border"
     >
-      <div className="h-[17rem] w-[14rem] rounded">
+      <div className="h-[17rem] w-[14rem]">
         <img
-          className="h-full w-full object-cover object-left-top"
+          className="h-full w-full object-cover object-top"
           src={product.imageUrl}
           alt=""
         />
       </div>
 
-      <div className="textPart bg-white p-3">
-        <div>
-          <p className="text-black font-semibold">{product.brand}</p>
-          <p className="text-sm text-gray-900">{product.title}</p>
-        </div>
+      <div className="textPart p-3.5">
+        <p className="text-black font-medium">{product.brand}</p>
+        <p className="text-sm text-gray-900 opacity-95 focus:outline-none">
+          {product.title}
+        </p>
 
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 pt-2">
           <p className="font-semibold">₹{product.discountedPrice}</p>
           <p className="line-through opacity-70 text-sm">{product.price}</p>
           <p className="text-green-500 text-sm font-semibold">

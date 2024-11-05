@@ -7,17 +7,17 @@ function HomeSectionCard({ product }) {
   return (
     <div
       onClick={() => navigate(`/product/${5}`)}
-      className="curser-pointer flex flex-col items-center justify-center rounded hover:shadow-2xl overflow-hidden w-[14rem] m-3 "
+      className="curser-pointer flex flex-col items-center justify-center rounded border shadow-sm hover:shadow-2xl overflow-hidden w-[14rem] m-3 "
     >
-      <div className="h-[17rem] w-[14rem] bg-gray-100">
+      <div className="h-[17rem] w-[14rem] bg-gray-100 rounded-b-sm">
         <img
-          className="object-cover object-top w-full h-full"
+          className="object-cover object-top w-full h-full rounded-b-sm"
           src={product.imageUrl}
           alt=""
         />
       </div>
 
-      <div className="m-2">
+      <div className="m-1.5">
         <h3 className="text-base font-semibold mt-1.5 text-black">
           {product.brand.toUpperCase()}
         </h3>

@@ -19,7 +19,8 @@ function CustomersRoutes() {
       <Routes>
         <Route path="/" element={<HomePage />}></Route>
         <Route
-          path="/:levelOne/:levelTwo/:levelThree"
+          // path="/:levelOne/:levelTwo/:levelThree"
+          path="/product"
           element={<Product />}
         ></Route>
         <Route path="/product/:productId" element={<ProductDetails />}></Route>
